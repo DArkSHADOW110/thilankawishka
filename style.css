@@ -44,7 +44,7 @@ a {
 
     /* BACKGROUND IMAGE SETTINGS */
     /* REPLACE 'your-photo.jpg' WITH YOUR ACTUAL PHOTO URL */
-    background-image: url('Images/img.png');
+    background-image: url('/Images/img.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -402,7 +402,7 @@ body.dark-mode .skill-tag {
 }
 
 body.dark-mode .fixed-hero {
-    background-image: url('Images/img2.png');
+    background-image: url('/Images/img2.png');
 }
 
 @media (max-width: 768px) {
@@ -419,10 +419,11 @@ body.dark-mode .fixed-hero {
     }
 
     .fixed-hero {
-        background-image: url('Images/img3 light.png');
+        background-image: url('/Images/img3-light.png');
     }
 
     body.dark-mode .fixed-hero {
-        background-image: url('Images/img4 dark.png');
+        background-image: url('/Images/img4-dark.png');
     }
 }
+
