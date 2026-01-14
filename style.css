@@ -1,0 +1,428 @@
+/* --- RESET & BASICS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* The "Beige" color from the video */
+    background-color: #d7eafa;
+    color: #1a1a1a;
+    font-family: 'Lora', serif;
+    /* Serif font for body text to match the "book" feel */
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- TYPOGRAPHY --- */
+h1,
+h2,
+h3,
+.btn {
+    font-family: 'Anton', sans-serif;
+    /* Tall, bold font */
+    text-transform: uppercase;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* --- THE FIXED HERO (The trick to the design) --- */
+.fixed-hero {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Full screen height */
+    z-index: 0;
+    /* Behind everything else */
+
+    /* BACKGROUND IMAGE SETTINGS */
+    /* REPLACE 'your-photo.jpg' WITH YOUR ACTUAL PHOTO URL */
+    background-image: url('Images/img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Dark overlay so white text pops */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    /* align-items: center; */
+    /* Center vertically */
+    justify-content: left;
+    text-align: left;
+    transition: background-image 0.3s ease;
+}
+
+/* The massive name text */
+.hero-text h1 {
+    font-size: 150px;
+    /* Responsive huge size */
+    color: #fff;
+    margin-top: 700px;
+    line-height: 0.85;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- THE SCROLLING CONTENT --- */
+.scrolling-content {
+    position: relative;
+    z-index: 1;
+    background-color: #d7eafa;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- SECTIONS --- */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.section {
+    padding: 80px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.first-section {
+    padding-top: 100px;
+    min-height: 60vh;
+    /* Gives it breathing room */
+    display: flex;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* The "Bird" Icon styling */
+.icon {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.icon img {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+/* The Intro Paragraph */
+.lead-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 400;
+}
+
+/* --- SKILLS --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.skill-tag {
+    background: #1a1a1a;
+    color: #d7eafa;
+    padding: 10px 20px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+}
+
+/* --- PROJECTS --- */
+.project-card {
+    display: block;
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* --- GALLERY --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1.4;
+    /* Poster aspect ratio */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effects */
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Optional: Fade in animation on load */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+    /* consistent with animation */
+}
+
+/* Staggered animation delays */
+.gallery-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gallery-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gallery-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.gallery-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.gallery-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: #111;
+    color: #d7eafa;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.footer h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.footer .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #d7eafa;
+    color: #111;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    margin-bottom: 40px;
+}
+
+.footer .btn:hover {
+    background: #ccc;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid transparent;
+}
+
+.social-links a:hover {
+    border-bottom: 1px solid #d7eafa;
+}
+
+.copyright {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    font-family: 'Anton', sans-serif;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 22vw;
+        /* Even bigger on mobile */
+    }
+
+    .lead-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- DARK MODE TOGGLE --- */
+.toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toggle-container input {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.toggle-container label {
+    width: 60px;
+    height: 26px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 26px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.4), inset 0px -2px 5px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-container label:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.toggle-container input:checked+label {
+    background: #242424;
+}
+
+.toggle-container input:checked+label:after {
+    left: 57px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.toggle-container label:active:after {
+    width: 26px;
+}
+
+/* --- DARK MODE STYLES --- */
+body.dark-mode {
+    background-color: #242424;
+    color: #e0e0e0;
+}
+
+body.dark-mode .scrolling-content {
+    background-color: #242424;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.5);
+    /* Darker shadow */
+}
+
+body.dark-mode .lead-text,
+body.dark-mode .section {
+    color: #ccc;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .project-card {
+    background: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+body.dark-mode .project-card h3 {
+    color: #fff;
+}
+
+body.dark-mode .project-card p {
+    color: #ccc;
+}
+
+body.dark-mode .placeholder-box {
+    background: #444;
+    color: #aaa;
+}
+
+body.dark-mode .skill-tag {
+    background: #eee;
+    color: #1a1a1a;
+}
+
+body.dark-mode .fixed-hero {
+    background-image: url('Images/img2.png');
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 12vw;
+        /* Adjusted size to prevent overflow */
+        margin-top: 90vh;
+        /* Center vertically relative to vh instead of fixed pixels */
+        line-height: 1.2;
+    }
+
+    .lead-text {
+        font-size: 1.2rem;
+    }
+
+    .fixed-hero {
+        background-image: url('Images/img3_light.png');
+    }
+
+    body.dark-mode .fixed-hero {
+        background-image: url('Images/img4_dark.png');
+    }
+}
