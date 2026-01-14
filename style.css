@@ -12,6 +12,7 @@ body {
     font-family: 'Lora', serif;
     /* Serif font for body text to match the "book" feel */
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- TYPOGRAPHY --- */
@@ -43,7 +44,7 @@ a {
 
     /* BACKGROUND IMAGE SETTINGS */
     /* REPLACE 'your-photo.jpg' WITH YOUR ACTUAL PHOTO URL */
-    background-image: url('img.png');
+    background-image: url('Images/img.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -57,6 +58,7 @@ a {
     /* Center vertically */
     justify-content: left;
     text-align: left;
+    transition: background-image 0.3s ease;
 }
 
 /* The massive name text */
@@ -75,13 +77,9 @@ a {
 .scrolling-content {
     position: relative;
     z-index: 1;
-    /* sits ON TOP of the hero */
-    /* margin-top: 100vh; Removed to allow natural flow */
-    /* Pushes content down to start AFTER the full hero image */
     background-color: #d7eafa;
-    /* The beige background color */
     box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow at the top edge */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* --- SECTIONS --- */
@@ -110,9 +108,14 @@ a {
 
 /* The "Bird" Icon styling */
 .icon {
-    font-size: 3rem;
     margin-bottom: 20px;
     opacity: 0.8;
+}
+
+.icon img {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
 }
 
 /* The Intro Paragraph */
@@ -399,5 +402,27 @@ body.dark-mode .skill-tag {
 }
 
 body.dark-mode .fixed-hero {
-    background-image: url('img2.png');
+    background-image: url('Images/img2.png');
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 12vw;
+        /* Adjusted size to prevent overflow */
+        margin-top: 90vh;
+        /* Center vertically relative to vh instead of fixed pixels */
+        line-height: 1.2;
+    }
+
+    .lead-text {
+        font-size: 1.2rem;
+    }
+
+    .fixed-hero {
+        background-image: url('Images/img3 light.png');
+    }
+
+    body.dark-mode .fixed-hero {
+        background-image: url('Images/img4 dark.png');
+    }
 }
